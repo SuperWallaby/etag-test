@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   res.end();
   return {} as any;
  }
- res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+ res.setHeader("Cache-Control", "public, no-cache");
  res.setHeader("ETag", "aaaa");
  return {
   props: {},
