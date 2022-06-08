@@ -7,6 +7,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
  const targetIndex =
   req.rawHeaders.findIndex((val) => val === "If-None-Match") + 1;
  const EtagVal = req.rawHeaders[targetIndex];
+ console.log("targetIndex", targetIndex);
  console.log("EtagVal", EtagVal);
  if (EtagVal === "aaaa") {
   res.statusCode = 304;
