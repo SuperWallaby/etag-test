@@ -8,7 +8,11 @@ const nextConfig = {
         "headers" : [
           {
             "key" : "ETag",
-            value: undefined
+            value: "undefined"
+          },
+          {
+            "key" : "If-None-Match",
+            value: "undefined"
           }
         ]
       }
