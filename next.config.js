@@ -7,7 +7,8 @@ const nextConfig = {
         source: '/:path*',
         "headers" : [
           {
-            "key" : "ETag"
+            "key" : "ETag",
+            value: undefined
           }
         ]
       }
