@@ -4,18 +4,21 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+ console.log("req.rawHeaders", req.rawHeaders);
  const targetIndex =
   req.rawHeaders.findIndex((val) => val === "If-None-Match") + 1;
  const EtagVal = req.rawHeaders[targetIndex];
  console.log("targetIndex", targetIndex);
  console.log("EtagVal", EtagVal);
+ res.setHeader("Cache-Control", "public, no-cache");
+ res.setHeader("ETag", "aaaa");
+
  if (EtagVal === "aaaa") {
   res.statusCode = 304;
   res.end();
   return {} as any;
  }
- res.setHeader("Cache-Control", "public, no-cache");
- res.setHeader("ETag", "aaaa");
+
  return {
   props: {},
  };
